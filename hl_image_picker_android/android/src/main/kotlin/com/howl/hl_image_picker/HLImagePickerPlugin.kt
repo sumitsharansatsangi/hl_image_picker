@@ -269,42 +269,50 @@ class HLImagePickerPlugin : FlutterPlugin, MethodCallHandler, ActivityAware, Plu
     private fun handleSelectLimitTips(context: Context?, config: SelectorConfig, limitType: Int): Boolean {
         return when (limitType) {
             SelectLimitType.SELECT_MAX_SELECT_LIMIT -> {
-                showDialog(context, uiStyle.getOrElse("maxSelectedAssetsErrorText") { "Exceeded maximum number of selected items" } as String)
+                showDialog(context, uiStyle.getOrElse("maxSelectedAssetsErrorText") { "Exceeded maximum number of selected items" } as String, 
+                uiStyle.getOrElse("maxSelectedAssetsErrorTextColor") {"#007AFF"} as String)
                 true
             }
 
             SelectLimitType.SELECT_MIN_SELECT_LIMIT -> {
-                showDialog(context, uiStyle.getOrElse("minSelectedAssetsErrorText") { "Need to select at least ${config.minSelectNum}" } as String)
+                showDialog(context, uiStyle.getOrElse("minSelectedAssetsErrorText") { "Need to select at least ${config.minSelectNum}" } as String, 
+                uiStyle.getOrElse("minSelectedAssetsErrorTextColor") {"#007AFF"} as String)
                 true
             }
 
             SelectLimitType.SELECT_MAX_VIDEO_SELECT_LIMIT -> {
-                showDialog(context, uiStyle.getOrElse("maxSelectedAssetsErrorText") { "Exceeded maximum number of selected items" } as String)
+                showDialog(context, uiStyle.getOrElse("maxSelectedAssetsErrorText") { "Exceeded maximum number of selected items" } as String,
+                uiStyle.getOrElse("maxSelectedAssetsErrorTextColor") {"#007AFF"} as String)
                 true
             }
 
             SelectLimitType.SELECT_MIN_VIDEO_SELECT_LIMIT -> {
-                showDialog(context, uiStyle.getOrElse("minSelectedAssetsErrorText") { "Need to select at least ${config.minSelectNum}" } as String)
+                showDialog(context, uiStyle.getOrElse("minSelectedAssetsErrorText") { "Need to select at least ${config.minSelectNum}" } as String,
+                uiStyle.getOrElse("minSelectedAssetsErrorTextColor") {"#007AFF"} as String)
                 true
             }
 
             SelectLimitType.SELECT_MAX_VIDEO_SECOND_SELECT_LIMIT -> {
-                showDialog(context, uiStyle.getOrElse("maxDurationErrorText") { "Exceeded maximum duration of the video" } as String)
+                showDialog(context, uiStyle.getOrElse("maxDurationErrorText") { "Exceeded maximum duration of the video" } as String,
+                uiStyle.getOrElse("maxDurationErrorTextColor") {"#007AFF"} as String)
                 true
             }
 
             SelectLimitType.SELECT_MIN_VIDEO_SECOND_SELECT_LIMIT -> {
-                showDialog(context, uiStyle.getOrElse("minDurationErrorText") { "The video is too short" } as String)
+                showDialog(context, uiStyle.getOrElse("minDurationErrorText") { "The video is too short" } as String,
+                uiStyle.getOrElse("minDurationErrorTextColor") {"#007AFF"} as String)
                 true
             }
 
             SelectLimitType.SELECT_MAX_FILE_SIZE_LIMIT -> {
-                showDialog(context, uiStyle.getOrElse("maxFileSizeErrorText") {"Exceeded maximum file size"} as String)
+                showDialog(context, uiStyle.getOrElse("maxFileSizeErrorText") {"Exceeded maximum file size"} as String,
+                uiStyle.getOrElse("maxFileSizeTextColor") {"#007AFF"} as String)
                 true
             }
 
             SelectLimitType.SELECT_MIN_FILE_SIZE_LIMIT -> {
-                showDialog(context, uiStyle.getOrElse("minFileSizeErrorText") {"The file size is too small"} as String)
+                showDialog(context, uiStyle.getOrElse("minFileSizeErrorText") {"The file size is too small"} as String,
+                uiStyle.getOrElse("minFileSizeErrorTextColor") {"#007AFF"} as String)
                 true
             }
 
@@ -323,10 +331,10 @@ class HLImagePickerPlugin : FlutterPlugin, MethodCallHandler, ActivityAware, Plu
         showDialog(fragment.context, message)
     }
 
-    private fun showDialog(context: Context?, message: String) {
+    private fun showDialog(context: Context?, message: String, color: String) {
         val dialog = RemindDialog.buildDialog(context, message)
         dialog.setButtonText(uiStyle.getOrElse("okText") {"OK"} as String)
-        dialog.setButtonTextColor(Color.parseColor("#007AFF"))
+        dialog.setButtonTextColor(Color.parseColor(color) )
         dialog.setContentTextColor(Color.parseColor("#000000"))
         dialog.setOnDialogClickListener {
             dialog.dismiss()
