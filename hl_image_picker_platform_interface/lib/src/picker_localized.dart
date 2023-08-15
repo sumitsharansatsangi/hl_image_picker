@@ -7,6 +7,14 @@ class LocalizedImageCropper {
   /// **'Done'**
   late final String? cropDoneText;
 
+   /// The color displayed on the "Done" button.
+  ///
+  /// Platform: **iOS**
+  ///
+  /// Default:
+  /// **'Done'**
+  late final String? cropDoneColor;
+
   /// The text displayed on the "Done" button.
   ///
   /// Platform: **iOS**
@@ -94,6 +102,12 @@ class LocalizedImagePicker extends LocalizedImageCropper {
   /// **'Done'**
   late final String? doneText;
 
+  /// The color displayed on the "Done" button.
+  ///
+  /// Default:
+  /// **'#007AFF'**
+  late final String? doneTextColor;
+
   /// The error message displayed when the app doesn't have permission to record audio.
   ///
   /// Platform: **Android**
@@ -102,11 +116,25 @@ class LocalizedImagePicker extends LocalizedImageCropper {
   /// **'No permission to record audio'**
   late final String? noRecordAudioPermissionText;
 
+  /// The error message color displayed when the app doesn't have permission to record audio.
+  ///
+  /// Platform: **Android**
+  ///
+  /// Default:
+  /// **'No permission to record audio'**
+  late final String? noRecordAudioPermissionTextColor;
+
   /// The text displayed on the "OK" button.
   ///
   /// Default:
   /// **'OK'**
   late final String? okText;
+
+  /// The text Color displayed on the "OK" button.
+  ///
+  /// Default:
+  /// **'OK'**
+  late final String? okTextColor;
 
   /// The text displayed when the picker is in a loading state.
   ///
@@ -150,7 +178,9 @@ class LocalizedImagePicker extends LocalizedImageCropper {
     this.maxSelectedAssetsErrorText,
     this.minSelectedAssetsErrorText,
     this.doneText,
+    this.doneTextColor,
     this.noRecordAudioPermissionText,
+    this.noRecordAudioPermissionTextColor,
     this.okText,
     this.loadingText,
     this.defaultAlbumName,
@@ -176,6 +206,7 @@ class LocalizedImagePicker extends LocalizedImageCropper {
     data['noRecordAudioPermissionText'] = noRecordAudioPermissionText;
     data['cancelText'] = cancelText;
     data['doneText'] = doneText;
+    data['doneTextColor'] = doneTextColor;
     data['tapHereToChangeText'] = tapHereToChangeText;
     data['emptyMediaText'] = emptyMediaText;
     data['loadingText'] = loadingText;
