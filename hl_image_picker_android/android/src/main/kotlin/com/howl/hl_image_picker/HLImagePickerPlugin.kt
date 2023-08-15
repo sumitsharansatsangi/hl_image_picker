@@ -225,8 +225,8 @@ class HLImagePickerPlugin : FlutterPlugin, MethodCallHandler, ActivityAware, Plu
         mainStyle.isCompleteSelectRelativeTop = true
         mainStyle.selectText = uiStyle.getOrElse("doneText") {"Done"} as String
         mainStyle.selectNormalText = uiStyle.getOrElse("doneText") {"Done"} as String
-        mainStyle.selectTextColor = Color.parseColor("#007AFF")
-        mainStyle.selectNormalTextColor = Color.parseColor("#007AFF")
+        mainStyle.selectTextColor = Color.parseColor(uiStyle.getOrElse("doneTextColor") {"#007AFF"} as String) 
+        mainStyle.selectNormalTextColor = Color.parseColor(uiStyle.getOrElse("doneTextColor") {"#007AFF"} as String) 
         val maxSelectedAssets = flutterCall?.argument<Int>("maxSelectedAssets") ?: 1
         if (maxSelectedAssets != 1) {
             mainStyle.isSelectNumberStyle = true
@@ -545,7 +545,7 @@ class HLImagePickerPlugin : FlutterPlugin, MethodCallHandler, ActivityAware, Plu
         val externalFilesDir = applicationContext.getExternalFilesDir("")
         val customFile = File(externalFilesDir?.absolutePath, "Thumbnail")
         if (!customFile.exists()) {
-            customFile.mkdirs()
+            customFile.mkdirs() 
         }
         val compressQuality = flutterCall?.argument<Double>("thumbnailCompressQuality") ?: 0.9
         val compressFormatStr = flutterCall?.argument<String>("thumbnailCompressFormat")
