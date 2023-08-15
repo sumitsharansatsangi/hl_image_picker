@@ -1,3 +1,11 @@
+## 1.2.6
+
+- Fix the issue of not returning image when cropper screen is closed. (iOS)
+
+## 1.2.5
+
+- Dismiss camera preview before open cropper (iOS)
+
 ## 1.2.4
 
 - Update README.md

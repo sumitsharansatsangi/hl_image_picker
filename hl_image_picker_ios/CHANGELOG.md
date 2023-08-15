@@ -1,4 +1,12 @@
-## 1.2.1
+## 1.2.3
+
+- Fix the issue of not returning image when cropper screen is closed.
+
+## 1.2.2
+
+- Dismiss camera preview before open cropper
+
+- ## 1.2.1
 
 - Fix duplicate alert when album permission is denied
 
