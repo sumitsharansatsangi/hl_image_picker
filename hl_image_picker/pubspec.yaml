@@ -2,6 +2,7 @@ name: hl_image_picker
 description: Choose images/videos from the library, crop images, and capture new photos/videos with ease.
 repository: https://github.com/howljs/hl_image_picker/tree/main/hl_image_picker
 issue_tracker: https://github.com/howljs/hl_image_picker/issues
+publish_to: none
 
 version: 1.2.6
 
@@ -12,9 +13,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  hl_image_picker_platform_interface: ^1.2.0
-  hl_image_picker_ios: ^1.2.3
-  hl_image_picker_android: ^1.2.1
+  hl_image_picker_platform_interface:
+    path: ../hl_image_picker_platform_interface
+  hl_image_picker_ios: 
+    path: ../hl_image_picker_ios
+  hl_image_picker_android:
+    path: ../hl_image_picker_android
 
 dev_dependencies:
   flutter_test:
