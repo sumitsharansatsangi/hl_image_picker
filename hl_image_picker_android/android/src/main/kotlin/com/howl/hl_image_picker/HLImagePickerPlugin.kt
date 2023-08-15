@@ -328,7 +328,14 @@ class HLImagePickerPlugin : FlutterPlugin, MethodCallHandler, ActivityAware, Plu
         } else {
             uiStyle.getOrElse("noAlbumPermissionText") {"No permission to access album"} as String
         }
-        showDialog(fragment.context, message)
+         val color: String = if (TextUtils.equals(permissionArray?.get(0), PermissionConfig.CAMERA[0])) {
+            uiStyle.getOrElse("noCameraPermissionTextColor") {"#007AFF"} as String
+        } else if (TextUtils.equals(permissionArray?.get(0), Manifest.permission.RECORD_AUDIO)) {
+            uiStyle.getOrElse("noRecordAudioPermissionTextColor") {"#007AFF"} as String
+        } else {
+            uiStyle.getOrElse("noAlbumPermissionTextColor") {"#007AFF"} as String
+        }
+        showDialog(fragment.context, message, color)
     }
 
     private fun showDialog(context: Context?, message: String, color: String) {
