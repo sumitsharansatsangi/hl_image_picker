@@ -48,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
   List<CropAspectRatioPreset>? _aspectRatioPresets;
   double _compressQuality = 0.9;
 
-  _openPicker() async {
+  _openPicker() async { 
     try {
       final images = await _picker.openPicker(
         localized: LocalizedImagePicker(doneTextColor: "#9a09ce"),

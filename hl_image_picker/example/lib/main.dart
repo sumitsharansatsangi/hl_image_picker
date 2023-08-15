@@ -52,6 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
   _openPicker() async {
     try {
       final images = await _picker.openPicker(
+        localized: LocalizedImagePicker(doneTextColor: "#9a09ce"),
         cropping: _isCroppingEnabled,
         selectedIds: _includePrevSelected
             ? _selectedImages.map((e) => e.id).toList()

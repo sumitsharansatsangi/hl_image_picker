@@ -7,7 +7,7 @@ class LocalizedImageCropper {
   /// **'Done'**
   late final String? cropDoneText;
 
-   /// The color displayed on the "Done" button.
+  /// The color displayed on the "Done" button.
   ///
   /// Platform: **iOS**
   ///
@@ -22,20 +22,29 @@ class LocalizedImageCropper {
   /// Default:
   /// **'Cancel'**
   late final String? cropCancelText;
+  late final String? cropCancelColor;
 
   /// The title displayed in the crop image screen.
   late final String? cropTitleText;
+
+  late final String? cropTitleColor;
 
   LocalizedImageCropper({
     this.cropDoneText,
     this.cropCancelText,
     this.cropTitleText,
+    this.cropTitleColor,
+    this.cropDoneColor,
+    this.cropCancelColor,
   });
 
   LocalizedImageCropper.fromMap(Map<String, dynamic> map) {
     cropTitleText = map['cropTitleText'];
     cropDoneText = map['cropDoneText'];
     cropCancelText = map['cropCancelText'];
+    cropTitleColor = map['cropTitleColor'];
+    cropDoneColor = map['cropDoneColor'];
+    cropCancelColor = map['cropCancelColor'];
   }
 
   Map<String, dynamic> toMap() {
@@ -43,6 +52,9 @@ class LocalizedImageCropper {
     data['cropTitleText'] = cropTitleText;
     data['cropDoneText'] = cropDoneText;
     data['cropCancelText'] = cropCancelText;
+    data['cropTitleColor'] = cropTitleColor;
+    data['cropDoneColor'] = cropDoneColor;
+    data['cropCancelColor'] = cropCancelColor;
     return data;
   }
 }
@@ -142,6 +154,12 @@ class LocalizedImagePicker extends LocalizedImageCropper {
   /// **'Loading'**
   late final String? loadingText;
 
+  /// The text Color displayed when the picker is in a loading state.
+  ///
+  /// Default:
+  /// **'Loading'**
+  late final String? loadingTextColor;
+
   /// The name for default album.
   ///
   /// Default:
@@ -153,6 +171,12 @@ class LocalizedImagePicker extends LocalizedImageCropper {
   /// Default:
   /// **'Cancel'**
   late final String? cancelText;
+
+  /// The text Color displayed on the "Cancel" button.
+  ///
+  /// Default:
+  /// **'Cancel'**
+  late final String? cancelTextColor;
 
   /// The text displayed below `defaultAlbumName`.
   ///
@@ -168,29 +192,34 @@ class LocalizedImagePicker extends LocalizedImageCropper {
   /// **'No media available'**
   late final String? emptyMediaText;
 
-  LocalizedImagePicker({
-    this.maxDurationErrorText,
-    this.minDurationErrorText,
-    this.maxFileSizeErrorText,
-    this.minFileSizeErrorText,
-    this.noAlbumPermissionText,
-    this.noCameraPermissionText,
-    this.maxSelectedAssetsErrorText,
-    this.minSelectedAssetsErrorText,
-    this.doneText,
-    this.doneTextColor,
-    this.noRecordAudioPermissionText,
-    this.noRecordAudioPermissionTextColor,
-    this.okText,
-    this.loadingText,
-    this.defaultAlbumName,
-    this.cancelText,
-    this.tapHereToChangeText,
-    this.emptyMediaText,
-    super.cropDoneText,
-    super.cropCancelText,
-    super.cropTitleText,
-  });
+  LocalizedImagePicker(
+      {this.maxDurationErrorText,
+      this.minDurationErrorText,
+      this.maxFileSizeErrorText,
+      this.minFileSizeErrorText,
+      this.noAlbumPermissionText,
+      this.noCameraPermissionText,
+      this.maxSelectedAssetsErrorText,
+      this.minSelectedAssetsErrorText,
+      this.doneText,
+      this.doneTextColor,
+      this.noRecordAudioPermissionText,
+      this.noRecordAudioPermissionTextColor,
+      this.okText,
+      this.okTextColor,
+      this.loadingText,
+      this.loadingTextColor,
+      this.defaultAlbumName,
+      this.cancelText,
+      this.cancelTextColor,
+      this.tapHereToChangeText,
+      this.emptyMediaText,
+      super.cropDoneText,
+      super.cropDoneColor,
+      super.cropCancelText,
+      super.cropCancelColor,
+      super.cropTitleText,
+      super.cropTitleColor});
 
   @override
   Map<String, dynamic> toMap() {
@@ -205,15 +234,21 @@ class LocalizedImagePicker extends LocalizedImageCropper {
     data['minSelectedAssetsErrorText'] = minSelectedAssetsErrorText;
     data['noRecordAudioPermissionText'] = noRecordAudioPermissionText;
     data['cancelText'] = cancelText;
+    data['cancelTextColor'] = cancelTextColor;
     data['doneText'] = doneText;
     data['doneTextColor'] = doneTextColor;
     data['tapHereToChangeText'] = tapHereToChangeText;
     data['emptyMediaText'] = emptyMediaText;
     data['loadingText'] = loadingText;
+    data['loadingTextColor'] = loadingTextColor;
     data['okText'] = okText;
+    data['okTextColor'] = okTextColor;
     data['cropTitleText'] = cropTitleText;
+    data['cropTitleColor'] = cropTitleColor;
     data['cropDoneText'] = cropDoneText;
+    data['cropDoneColor'] = cropDoneColor;
     data['cropCancelText'] = cropCancelText;
+    data['cropCancelColor'] = cropCancelColor;
     data['defaultAlbumName'] = defaultAlbumName;
     return data;
   }
